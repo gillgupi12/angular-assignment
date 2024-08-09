@@ -21,7 +21,7 @@ import { ToastComponent } from '../../../core/components/toast/toast.component';
     UserBankAccountFormComponent,
     ToastComponent,
   ],
-  exports: [RetirementContainerComponent, ButtonComponent],
+  exports: [RetirementContainerComponent, ButtonComponent, ToastComponent],
   providers: [provideAnimations()],
 })
 export class MyRetirementModule {}
