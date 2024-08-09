@@ -7,7 +7,7 @@
     <custom-button btnColor="secondary" btnText="Enquire History"></custom-button>
   </ng-template>
   <ng-template #abodyTemplate>
-    <div *ngIf="loading; else elseBlock">Loading User Data....</div>
+    <div *ngIf="loading; else elseBlock" class="data-spinner">Loading User Data....</div>
     <ng-template #elseBlock>
       <div
         *ngFor="let item of investmentData; index as i"

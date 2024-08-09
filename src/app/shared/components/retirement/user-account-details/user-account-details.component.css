@@ -14,6 +14,18 @@ table td {
   justify-content: space-between;
   align-items: center;
 }
+.data-spinner{
+  display: flex;
+  background-color: lightgray;
+  opacity: 30%;
+  color: black;
+  font-size: 32px;
+  width: 100%;
+  height: 12rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 
 .content {
   display: flex;
