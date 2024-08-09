@@ -3,7 +3,6 @@ import {
   Component,
   ElementRef,
   OnInit,
-  TemplateRef,
   ViewChild,
 } from '@angular/core';
 import {
@@ -11,6 +10,7 @@ import {
   UserInvestmentData,
 } from '../../../../core/services/fake-ajax/fake-ajax.service';
 import { faPencil } from '@fortawesome/free-solid-svg-icons';
+import { ToastService } from '../../../../core/services/toast/toast.service';
 
 @Component({
   selector: 'user-account-details',
@@ -25,7 +25,7 @@ export class UserAccountDetailsComponent implements OnInit, AfterViewInit {
   faPencil = faPencil;
   newAccountNumber = 0;
 
-  constructor(private fakeAjaxService: FakeAjaxService) {}
+  constructor(private fakeAjaxService: FakeAjaxService, public toast: ToastService) {}
 
   dialog!: HTMLDialogElement;
   @ViewChild('dialog', { read: ElementRef }) dialogElement: any;
@@ -44,6 +44,19 @@ export class UserAccountDetailsComponent implements OnInit, AfterViewInit {
     this.dialog.close();
   }
 
+  showSuccessToast(data: string){
+    this.toast.showToast({
+      title: 'Success!',
+      content: data
+    })
+  }
+  showErrorToast(data: string){
+    this.toast.showToast({
+      title: 'Failed!',
+      content: data
+    })
+  }
+
   updateUserBankAccount(e: { bankAccountNumber: string; currency: string }) {
     this.loading = true;
     if (
@@ -57,8 +70,8 @@ export class UserAccountDetailsComponent implements OnInit, AfterViewInit {
         .subscribe((response) => {
           if (response && response.data) {
             this.investmentData = response.data;
+            this.showSuccessToast(`Currency has been updated to ${e.currency}`)
             this.loading = false;
-            console.log(response);
           }
         });
     }
@@ -73,6 +86,7 @@ export class UserAccountDetailsComponent implements OnInit, AfterViewInit {
         .subscribe((response) => {
           if (response && response.data) {
             this.investmentData = response.data;
+            this.showSuccessToast(`Account Number has been updated to ${e.bankAccountNumber}`)
             this.loading = false;
           }
         });
