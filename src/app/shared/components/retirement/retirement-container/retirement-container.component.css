@@ -1,0 +1,23 @@
+.retirement-container {
+  background-color: #f3f3f3;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.retirement-container-header {
+  padding-bottom: 40px;
+}
+
+@media (min-width: 767px) {
+  .retirement-container {
+    background-color: #f3f3f3;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .retirement-container-header {
+    padding-bottom: 40px;
+  }
+}

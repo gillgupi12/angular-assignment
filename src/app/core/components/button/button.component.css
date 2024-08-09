@@ -1,0 +1,61 @@
+button {
+  padding: 5px 15px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  border-radius: 2px;
+}
+
+button.btn-primary {
+  color: blue;
+}
+
+button.btn-primary:hover {
+  background-color: white;
+  color: red;
+}
+
+button.btn-primary .icon-primary:hover {
+  color: red;
+}
+
+button.btn-secondary {
+  background-color: white;
+  color: black;
+}
+
+button.btn-secondary:hover {
+  background-color: white;
+  color: gray;
+}
+
+button.btn-secondary .icon-secondary:hover {
+  color: gray;
+}
+
+button.btn-success {
+  background-color: green;
+  color: white;
+}
+
+button.btn-success:hover {
+  background-color: lightgreen;
+  color: green;
+}
+
+button.btn-success .icon-success:hover {
+  color: green;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-with-border {
+  border: 1px solid black;
+}
+.btn-transparent:hover,
+.btn-transparent:focus {
+  background-color: transparent !important;
+}

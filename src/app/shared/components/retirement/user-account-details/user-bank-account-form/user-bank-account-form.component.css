@@ -1,0 +1,46 @@
+.divider-row{
+    height: 1px;
+    width: 100%;
+    background-color: black;
+    margin-top: 10px;
+}
+
+#user-account-form{
+    width: 500px;
+    display:flex;
+    flex-direction: column;
+    background-color: white;
+}
+.user-account-body-container{
+    padding: 10px 5px;
+}
+.user-account-from-body{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+}
+.user-account-from-dropdowns{
+    display: flex;
+    flex-direction: row;
+}
+
+.user-account-from-cta{
+    display : flex;
+    flex-direction: row;
+    gap:1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+select{
+    padding: 10px;
+    margin: 0;
+    border-radius: 0px;
+     border: 1px solid black;
+
+}
+.currency-dropdown{
+ 
+     background-color: lightgray;
+}

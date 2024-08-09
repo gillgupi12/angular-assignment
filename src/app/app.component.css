@@ -1,0 +1,100 @@
+::ng-deep * {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto';
+}
+
+::ng-deep h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+::ng-deep h2 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+::ng-deep h3 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+::ng-deep h4 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+::ng-deep h5 {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+::ng-deep h6 {
+  font-size: 12px;
+  font-weight: bold;
+}
+
+::ng-deep p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+  ::ng-deep h1 {
+    font-size: 32px;
+  }
+  ::ng-deep h2 {
+    font-size: 26px;
+  }
+  ::ng-deep h3 {
+    font-size: 22px;
+  }
+  ::ng-deep h4 {
+    font-size: 18px;
+  }
+  ::ng-deep h5 {
+    font-size: 16px;
+  }
+  ::ng-deep h6 {
+    font-size: 14px;
+  }
+  ::ng-deep p {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1200px) {
+  ::ng-deep h1 {
+    font-size: 36px;
+  }
+  ::ng-deep h2 {
+    font-size: 30px;
+  }
+  ::ng-deep h3 {
+    font-size: 24px;
+  }
+  ::ng-deep h4 {
+    font-size: 20px;
+  }
+  ::ng-deep h5 {
+    font-size: 18px;
+  }
+  ::ng-deep h6 {
+    font-size: 16px;
+  }
+  ::ng-deep p {
+    font-size: 16px;
+  }
+}
+
+::ng-deep dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 50px 35px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}

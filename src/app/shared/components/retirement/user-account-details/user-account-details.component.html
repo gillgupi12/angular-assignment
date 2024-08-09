@@ -1,0 +1,142 @@
+<custom-container
+  [headerTemplate]="aheaderTemplate"
+  [bodyTemplate]="abodyTemplate"
+>
+  <ng-template #aheaderTemplate>
+    <h3>Manage</h3>
+    <custom-button btnColor="secondary" btnText="Enquire History"></custom-button>
+  </ng-template>
+  <ng-template #abodyTemplate>
+    <div *ngIf="loading; else elseBlock">Loading User Data....</div>
+    <ng-template #elseBlock>
+      <div
+        *ngFor="let item of investmentData; index as i"
+        class="content-wrapper"
+      >
+        <!-- User Account Data -->
+        <table>
+          <tr>
+            <td>
+              <div class="content">
+                <h6 class="content-title">Creation date:</h6>
+                <h5 class="content-value">{{ item.userDetails.creationDate }}</h5>
+              </div>
+              <div></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="content">
+                <h6 class="content-title">Account number:</h6>
+                <h5 class="content-value">
+                  {{ item.userDetails.defaultAccountNumber }}
+                </h5>
+              </div>
+              <div>
+                <custom-button
+                  [btnIcon]="faPencil"
+                  [btnTransparent]="true"
+                  (click)="openDialog()"
+                ></custom-button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="content">
+                <h6 class="content-title">Charge date:</h6>
+                <h5 class="content-value">{{ item.userDetails.chargeDate }}</h5>
+              </div>
+              <div>
+                <custom-button
+                [btnIcon]="faPencil"
+                [btnTransparent]="true">
+              </custom-button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="content">
+                <h6 class="content-title">Status:</h6>
+                <h5 class="content-value">{{ item.userDetails.status }}</h5>
+              </div>
+              <div>
+                <custom-button
+                btnColor="secondary"
+                  btnText="Suspension of investment"
+                ></custom-button>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <!-- User Investment Amount Data -->
+        <table>
+          <tr>
+            <td>
+              <div class="content">
+                <h6 class="content-title">Investment amount:</h6>
+                <h5 class="content-value">
+                  {{ item.investmentDetails.currency }}
+                  {{ item.investmentDetails.investmentAmount }}
+                  {{ item.investmentDetails.investmentAmountBasis }}
+                </h5>
+              </div>
+
+              <div>
+                <custom-button btnColor="secondary" btnText="Adjust Amount"></custom-button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="content">
+                <h6 class="content-title">Accumulated investment amount:</h6>
+                <h5 class="content-value">
+                  {{ item.investmentDetails.currency }}
+                  {{ item.investmentDetails.accumulatedInvestmentAmount }}
+                </h5>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="content">
+                <h6 class="content-title">Current market value:</h6>
+                <h5 class="content-value">
+                  {{ item.investmentDetails.currency }}
+                  {{ item.investmentDetails.currentMarketValue }}
+                </h5>
+              </div>
+              <div>
+                <custom-button btnColor="secondary" btnText="Redemption" ></custom-button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="content">
+                <h6 class="content-title"></h6>
+                <h5 class="content-value"></h5>
+              </div>
+              <div></div>
+            </td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+    </ng-template>
+  </ng-template>
+</custom-container>
+
+<dialog #dialog>
+  <user-bank-account-form
+    *ngIf="investmentData[0] && investmentData[0].userDetails"
+    [bankAccountNumbers]="investmentData[0].userDetails.accountNumbers"
+    [currencies]="['HKD', 'TWD', 'USD', 'SGD', 'JPY']"
+    [selectedCurrency]="investmentData[0].investmentDetails.currency"
+    [selectedBankAccountNumber]="investmentData[0].userDetails.defaultAccountNumber"
+    (cancelEvent)="closeDialog()"
+    (submitEvent)="updateUserBankAccount($event)"
+  ></user-bank-account-form>
+</dialog>

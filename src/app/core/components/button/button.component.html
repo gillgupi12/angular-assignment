@@ -1,0 +1,36 @@
+<button
+  [class]="
+    btnClass +
+    (btnBorder ? 'btn-with-border' : '') +
+    (btnTransparent ? 'btn-transparent' : '')
+  "
+  [ngClass]="{
+    'btn-primary': btnColor === 'primary',
+    'btn-secondary': btnColor === 'secondary',
+    'btn-success': btnColor === 'success'
+  }"
+  [type]="btnType"
+  [disabled]="btnDisabled"
+  (click)="btnClick()"
+>
+  <span *ngIf="btnIconPosition === 'left'">
+    <fa-icon
+      *ngIf="btnIcon"
+      [icon]="btnIcon"
+      [ngClass]="{
+        'icon-primary': btnColor === 'primary',
+        'icon-secondary': btnColor === 'secondary',
+        'icon-success': btnColor === 'success'
+      }"
+    
+    ></fa-icon>
+  </span>
+ {{ btnText }}
+  <span *ngIf="btnIconPosition === 'right'">
+    <fa-icon
+      *ngIf="btnIcon"
+      [icon]="btnIcon"
+    
+    ></fa-icon>
+  </span>
+</button>

@@ -1,0 +1,42 @@
+:host {
+  display: block;
+}
+
+.navbar {
+  background-color: #1e2538;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.navbar-title {
+  color: white;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.navbar-icon-group{
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  
+}
+.navbar-icon fa-icon {
+  color: white;
+  margin-left: 0.4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  
+
+}
+
+.navbar-icon{
+  display: flex;
+  flex-direction: row;
+  padding: 0.5rem;
+
+}
+
+
+
